@@ -143,7 +143,6 @@ storage/
 .env.*.php
 .env.php
 .env
-.env.example
 
 ### Symfony ###
 # Cache and logs (Symfony2)
@@ -176,10 +175,6 @@ storage/
 
 # Assets managed by Bower
 /web/assets/vendor/
-
-# PHPUnit
-/app/phpunit.xml
-/phpunit.xml
 
 # Build data
 /build/
