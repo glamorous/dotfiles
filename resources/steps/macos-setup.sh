@@ -151,7 +151,7 @@ setup_touchbar() {
         "com.apple.system.group.keyboard-brightness" \
         "com.apple.system.group.volume" \
         "com.apple.system.screencapture" \
-        "com.apple.system.airplay" \
+        "com.apple.system.night-shift" \
         "com.apple.system.do-not-disturb" \
         "com.apple.system.workflows" \
         "com.apple.system.screen-lock"
