@@ -75,3 +75,5 @@ To Do
 - PHP ini files
 - Nginx config files
 - Add an extra step with a list of best practises
+- Create a `Code` folder if it doesn't exits with an alias `code` to navigate to it
+- Add a `--verbose` option to show output from the `execute` commands
