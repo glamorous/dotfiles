@@ -20,3 +20,6 @@ export MANPAGER="less -X"
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto"
+
+# Setup xdebug
+export XDEBUG_CONFIG="idekey=PHPSTORM"

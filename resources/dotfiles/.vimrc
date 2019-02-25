@@ -1,18 +1,23 @@
-" Based on CSS WIzardry's .vimrc
-" http://csswizardry.com/2014/06/vim-for-people-who-think-things-like-vim-are-weird-and-hard/
+"-------- General -------"
 
-" Syntax highlighting
-
-" Enable syntax highighting
 syntax enable
-" 256 colours, please
+
+"256 colours, please
 set t_Co=256
 
+"line numbers"
+set number
 
-" Tabs, indentation and lines
+
+"-------- Search -------"
+"highlist search"
+set hlsearch
+set incsearch
+
+
+"-------- Tabs & indentation -------"
 
 filetype plugin indent on
-" 4 spaces please
 set expandtab
 set shiftwidth=4
 set tabstop=4
@@ -22,7 +27,8 @@ set shiftround
 " No line-wrapping
 set nowrap
 
-" Interactions
+
+"-------- Interactions -------"
 
 " Start scrolling slightly before the cursor reaches an edge
 set scrolloff=3
@@ -33,7 +39,8 @@ set sidescroll=1
 set nocompatible
 set backspace=2
 
-" Visual decorations
+
+"-------- Visual decorations -------"
 
 " Show status line
 set laststatus=2
@@ -47,3 +54,17 @@ set modeline
 set ruler
 " Show file title in terminal tab
 set title
+
+
+"-------- Auto commands -------"
+"automatically source the Vimrc file on save.
+augroup autosourcing
+   autocmd!
+   autocmd BufWritePost .vimrc source %
+augroup END
+
+
+"-------- Mappings-------"
+"make it easy to edit the vimrc file"
+nmap ,ev :tabedit $MYVIMRC<cr>
+nmap ,<space> :nohlsearch<cr>
