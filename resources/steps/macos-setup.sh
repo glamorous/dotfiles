@@ -146,6 +146,7 @@ setup_touchbar() {
         "com.apple.system.screen-lock"
 
     defaults write com.apple.controlstrip FullCustomized -array \
+        "com.apple.system.show-desktop" \
         "com.apple.system.mission-control" \
         "com.apple.system.group.brightness" \
         "com.apple.system.group.keyboard-brightness" \
