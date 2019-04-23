@@ -15,7 +15,7 @@ DEFAULT_USER=`whoami`
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git ssh laravel laravel5 composer osx vagrant aws composer zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git ssh-agent laravel laravel5 composer osx vagrant aws composer)
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs)
