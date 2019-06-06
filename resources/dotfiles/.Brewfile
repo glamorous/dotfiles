@@ -104,8 +104,8 @@ cask "eid-be-viewer"
 #################################
 # OSX Quicklook improvement
 #################################
-cask "qlcolorcode"
 cask "qlstephen"
+cask "qlcolorcode"
 cask "qlmarkdown"
 cask "quicklook-json"
 cask "qlprettypatch"
