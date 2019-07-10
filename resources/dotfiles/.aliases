@@ -64,6 +64,7 @@ alias php71="phpv php@7.1"
 alias php72="phpv php@7.2"
 alias php73="phpv php"
 
+alias phpd='php -dzend_extension="xdebug.so" -dxdebug.remote_enable=1 -dxdebug.remote_port=9000 -dxdebug.remote_autostart'
 
 # MySQL
 alias mysqladm='mysql -u root'
