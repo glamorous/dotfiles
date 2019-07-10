@@ -50,3 +50,11 @@ function scheduler () {
         sleep 60
     done
 }
+
+function schedulerd () {
+    while :; do
+        phpd artisan schedule:run
+        echo "Sleeping 60 seconds..."
+        sleep 60
+    done
+}
