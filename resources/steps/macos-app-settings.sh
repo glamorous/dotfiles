@@ -88,9 +88,6 @@ setup_finder() {
     # Show the ~/Library folder
     chflags nohidden ~/Library
 
-    # Hide Preview Columns
-    /usr/libexec/PlistBuddy -c "Set :StandardViewOptions:ColumnViewOptions:ColumnShowIcons bool false" ~/Library/Preferences/com.apple.finder.plist && killall Finder
-
     # Set sidebar icon size to small
     defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
