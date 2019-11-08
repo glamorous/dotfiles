@@ -21,9 +21,9 @@ brew "git"
 brew "httpie"
 brew "mysql@5.7", restart_service: true, link: true
 brew "nginx", restart_service: true
-brew "php", link: false
+brew "php", link: true
 brew "php@7.1", link: false
-brew "php@7.2", restart_service: true, link: true
+brew "php@7.2", restart_service: true, link: false
 brew "pkg-config"
 brew "redis", restart_service: true
 brew "wget"
