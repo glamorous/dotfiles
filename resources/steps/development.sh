@@ -39,6 +39,10 @@ install_php_extensions() {
     execute \
         "pecl install xdebug" \
         "$PREFIX Xdebug"
+
+    execute \
+            "pecl install redis" \
+            "$PREFIX Redis (PHP)"
 }
 
 install_global_composer_packages() {
