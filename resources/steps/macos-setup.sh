@@ -135,8 +135,8 @@ setup_touchbar() {
     # Use the default collapsed touchbar
     defaults delete com.apple.touchbar.agent PresentationModeGlobal
 
-    # Use fn button to show program specific touchbar
-    defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip app
+    # Use fn button to show function keys
+    defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip functionKeys
 
     # Configure TouchBar (Mini and Full)
     defaults write com.apple.controlstrip MiniCustomized -array \
