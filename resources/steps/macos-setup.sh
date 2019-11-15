@@ -132,8 +132,8 @@ setup_screen_and_battery() {
     print_success "Screen saver, screen capture, energy settings"
 }
 setup_touchbar() {
-    # Always display full control strip
-    defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
+    # Use the default collapsed touchbar
+    defaults delete com.apple.touchbar.agent PresentationModeGlobal
 
     # Use fn button to show program specific touchbar
     defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip app
