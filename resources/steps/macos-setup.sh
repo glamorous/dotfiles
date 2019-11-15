@@ -140,7 +140,7 @@ setup_touchbar() {
 
     # Configure TouchBar (Mini and Full)
     defaults write com.apple.controlstrip MiniCustomized -array \
-        "com.apple.system.brightness" \
+        "com.apple.system.screencapture" \
         "com.apple.system.volume" \
         "com.apple.system.mute" \
         "com.apple.system.screen-lock"
