@@ -59,6 +59,7 @@ alias phpunitw="phpunit-watcher watch"
 alias hostfile="sudo vi /etc/hosts"
 alias sshconfig="vi ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.public | pbcopy'
+alias composer='COMPOSER_MEMORY_LIMIT=-1 composer'
 
 alias php71="phpv php@7.1"
 alias php72="phpv php@7.2"
