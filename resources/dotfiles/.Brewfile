@@ -42,13 +42,13 @@ tap "mas-cli/tap", pin: true
 brew "mas-cli/tap/mas"
 
 mas "Keynote", id: 409183694
+mas "Microsoft To Do", id: 1274495053
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "The Unarchiver", id: 425424353
 mas "WhatsApp", id: 1147396723
-mas "Wunderlist", id: 410628904
 mas "Xcode", id: 497799835
 
 
