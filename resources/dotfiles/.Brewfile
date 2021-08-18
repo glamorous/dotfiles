@@ -14,6 +14,7 @@ tap "homebrew/services"
 
 brew "composer"
 brew "dnsmasq", restart_service: true
+brew "gh"
 brew "git"
 brew "httpie"
 brew "mysql@5.7", restart_service: true, link: true
