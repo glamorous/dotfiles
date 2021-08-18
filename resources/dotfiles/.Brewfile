@@ -2,9 +2,6 @@
 # Core brew stuff
 #################################
 
-tap "caskroom/cask"
-tap "caskroom/versions"
-
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
@@ -22,8 +19,6 @@ brew "httpie"
 brew "mysql@5.7", restart_service: true, link: true
 brew "nginx", restart_service: true
 brew "php", link: true
-brew "php@7.1", link: false
-brew "php@7.2", restart_service: true, link: false
 brew "pkg-config"
 brew "redis", restart_service: true
 brew "wget"
@@ -136,7 +131,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 tap "sambadevi/powerlevel9k"
 brew "powerlevel9k"
-tap "caskroom/fonts"
 cask "font-hack-nerd-font"
 
 
