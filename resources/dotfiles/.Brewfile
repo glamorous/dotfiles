@@ -66,16 +66,19 @@ cask "docker"
 cask "firefox"
 cask "gas-mask"
 cask "google-chrome"
+cask "grandperspective"
 cask "handbrake"
 cask "insomnia"
 cask "iterm2"
 cask "jumpcut"
-cask "kitematic"
 cask "libreoffice"
 cask "libreoffice-language-pack"
+cask "macdown"
+cask "mediainfo"
 cask "microsoft-teams"
 cask "mysqlworkbench"
 cask "imageoptim"
+cask "obs"
 cask "phpstorm"
 cask "poedit"
 cask "postman"
@@ -140,3 +143,8 @@ cask "font-hack-nerd-font"
 # Macport (preferences sync)
 #################################
 brew "mackup"
+
+#################################
+# Tooling
+#################################
+brew "rsync"
