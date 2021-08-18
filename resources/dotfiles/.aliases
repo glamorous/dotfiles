@@ -43,7 +43,8 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias gitclear='git clean -d -f; git reset —hard;'
 
 # PHP
-alias phpunit="vendor/bin/phpunit"
+alias phpunit="./vendor/bin/phpunit"
+alias sail="./vendor/bin/sail"
 alias phpunitw="phpunit-watcher watch"
 alias hostfile="sudo vi /etc/hosts"
 alias sshconfig="vi ~/.ssh/config"
