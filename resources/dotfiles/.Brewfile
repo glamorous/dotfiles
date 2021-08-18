@@ -59,6 +59,7 @@ cask_args appdir: "/Applications"
 
 cask "adobe-acrobat-reader"
 cask "caffeine"
+cask "calibre"
 cask "cyberduck"
 cask "dropbox"
 cask "docker"
