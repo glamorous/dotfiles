@@ -25,6 +25,9 @@ brew "redis", restart_service: true
 brew "wget"
 brew "yarn"
 
+tap "nicoverbruggen/homebrew-cask"
+brew "phpmon"
+
 
 #################################
 # Image & Video
