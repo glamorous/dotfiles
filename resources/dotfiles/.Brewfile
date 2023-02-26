@@ -2,10 +2,8 @@
 # Core brew stuff
 #################################
 
-tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
+tap "buo/cask-upgrade"
 
 
 #################################
@@ -41,8 +39,7 @@ brew "ffmpeg"
 #################################
 # Mac Store Applications
 #################################
-tap "mas-cli/tap", pin: true
-brew "mas-cli/tap/mas"
+brew "mas"
 
 mas "Keynote", id: 409183694
 mas "Microsoft To Do", id: 1274495053
