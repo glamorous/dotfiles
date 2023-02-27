@@ -139,6 +139,7 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 tap "sambadevi/powerlevel9k"
 brew "powerlevel9k"
+tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
 
 
