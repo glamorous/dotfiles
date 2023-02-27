@@ -184,7 +184,7 @@ install_zsh_theme() {
 
     print_success "Zsh-theme"
 }
-install_ohz_plugins() {
+install_omz_plugins() {
 		git clone https://github.com/jasonmccreary/git-trim.git $ZSH_CUSTOM/plugins/git-trim
 }
 ###############################################
