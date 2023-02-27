@@ -24,7 +24,7 @@ brew "wget"
 brew "yarn"
 
 tap "nicoverbruggen/homebrew-cask"
-brew "phpmon"
+cask "phpmon"
 
 
 #################################
