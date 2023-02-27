@@ -25,7 +25,7 @@ install_php_extensions() {
     PREFIX="PHP Extensions:"
 
     execute \
-        "printf \"\n\" | pecl install mcrypt-1.0.1" \
+        "printf \"\n\" | pecl install mcrypt-1.0.4" \
         "$PREFIX mcrypt"
 
     execute \
