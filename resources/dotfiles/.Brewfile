@@ -26,6 +26,8 @@ brew "yarn"
 tap "nicoverbruggen/homebrew-cask"
 cask "phpmon"
 
+tap "axllent/apps"
+brew "mailpit"
 
 #################################
 # Image & Video
