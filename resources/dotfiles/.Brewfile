@@ -48,7 +48,6 @@ mas "Microsoft To Do", id: 1274495053
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
-mas "Spark", id: 1176895641
 mas "The Unarchiver", id: 425424353
 mas "WhatsApp", id: 1147396723
 mas "Xcode", id: 497799835
@@ -67,6 +66,7 @@ cask "devtoys"
 cask "dropbox"
 cask "docker"
 cask "epoccam"
+cask "elgato-stream-deck"
 cask "firefox"
 cask "google-chrome"
 cask "google-drive"
@@ -88,13 +88,13 @@ cask "poedit"
 cask "postman"
 cask "pycharm-ce"
 cask "raspberry-pi-imager"
+cask "ray"
 cask "sdformatter"
 cask "sequel-ace"
 cask "signal"
 cask "skype"
 cask "sonos"
 cask "sourcetree"
-cask "spectacle"
 cask "steam"
 cask "sublime-text"
 cask "tableplus"
