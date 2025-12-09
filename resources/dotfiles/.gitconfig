@@ -118,3 +118,6 @@
 [pull]
 	# Only allow fast forward pulls
 	ff = only
+
+[rebase]
+	autosquash = true
