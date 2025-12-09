@@ -56,9 +56,9 @@ mas "Xcode", id: 497799835
 #################################
 cask_args appdir: "/Applications"
 
-cask "adobe-acrobat-reader"
 cask "calibre"
 cask "charles"
+cask "cursor"
 cask "cyberduck"
 cask "dbngin"
 cask "dropbox"
@@ -77,20 +77,17 @@ cask "libreoffice"
 cask "libreoffice-language-pack"
 cask "mediainfo"
 cask "microsoft-teams"
-cask "mysqlworkbench"
 cask "imageoptim"
 cask "obs"
 cask "phpstorm"
 cask "plex"
 cask "poedit"
-cask "postman"
 cask "pycharm-ce"
 cask "raspberry-pi-imager"
 cask "ray"
 cask "rustdesk"
 cask "sdformatter"
 cask "signal"
-cask "skype"
 cask "slack"
 cask "sonos"
 cask "sourcetree"
@@ -119,13 +116,6 @@ cask "quicklook-csv"
 cask "betterzip"
 cask "webpquicklook"
 cask "suspicious-package"
-
-
-#################################
-# Drivers (+ apps)
-#################################
-cask "ubiquiti-unifi-controller"
-
 
 #################################
 # ZSH
