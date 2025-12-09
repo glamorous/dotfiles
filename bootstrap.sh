@@ -42,9 +42,9 @@ main() {
 
     fi
 
-    print_after_newline "If you're really sure you want to continue, enter “yes sir!” to continue" "ask_for_input"
+    print_after_newline "If you're really sure you want to continue, enter “yes” to continue" "ask_for_input"
 
-    if [[ $REPLY != "yes sir!" ]]; then
+    if [[ $REPLY != "yes" ]]; then
         print_after_newline "No worries, I'll stop here… Ciao! 👋" "print_in_yellow"
         print_with_newline
         exit 0

@@ -27,7 +27,7 @@ answer_is_yes() {
 
 ask_for_input() {
     print_question "$1"
-    read -r
+    read -r REPLY
 }
 
 ask_for_confirmation() {

@@ -15,7 +15,7 @@ brew "dnsmasq", restart_service: true
 brew "gh"
 brew "git"
 brew "httpie"
-brew "mysql@5.7", restart_service: true, link: true
+brew "mysql", restart_service: true, link: true
 brew "nginx", restart_service: true
 brew "php", link: true
 brew "pkg-config"
@@ -124,7 +124,6 @@ cask "suspicious-package"
 #################################
 # Drivers (+ apps)
 #################################
-tap "homebrew/cask-drivers"
 cask "ubiquiti-unifi-controller"
 
 
@@ -137,7 +136,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 tap "sambadevi/powerlevel9k"
 brew "powerlevel9k"
-tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
 
 

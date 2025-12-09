@@ -23,15 +23,19 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 # Functions
 ###############################################
 setup_computername() {
-    COMPUTER_NAME="$(hostname)"
+    RAW_NAME="$(scutil --get ComputerName 2>/dev/null || hostname)"
+    COMPUTER_NAME="${RAW_NAME%.local}"
+
     ask_for_input "What should your computer be named (without spaces)? (default: $COMPUTER_NAME)"
     [ -n "$REPLY" ] && COMPUTER_NAME=$REPLY
+
+    COMPUTER_NAME=$(echo "$COMPUTER_NAME" | sed -E 's/\.local$//' | tr '[:space:]' '-' | tr -d '.' | tr -cd '[:alnum:]-' | sed -E 's/^-+|[-]+$//g')
 
     # Set computer name (as done via System Preferences → Sharing)
     sudo scutil --set ComputerName $COMPUTER_NAME
     sudo scutil --set HostName $COMPUTER_NAME
     sudo scutil --set LocalHostName $COMPUTER_NAME
-    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$computername"
+    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 
     print_success "Computer name ($COMPUTER_NAME)"
 }
@@ -65,9 +69,7 @@ setup_loginscreen_message() {
 setup_date_and_time() {
     TIMEZONE="Europe/Brussels"
 
-    sudo /usr/sbin/systemsetup -settimezone "$TIMEZONE" > /dev/null
-    sudo /usr/sbin/systemsetup -setnetworktimeserver "time.euro.apple.com" > /dev/null
-    sudo /usr/sbin/systemsetup -setusingnetworktime on > /dev/null
+    sudo systemsetup -settimezone "Europe/Brussels" >/dev/null 2>&1
 
     # Set language and text formats
     # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
@@ -78,9 +80,6 @@ setup_date_and_time() {
     defaults write NSGlobalDomain AppleTemperatureUnit -string "Celsius"
     defaults write NSGlobalDomain AppleMetricUnits -bool true
     defaults write NSGlobalDomain AppleICUForce12HourTime -bool false
-
-    # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-    sudo systemsetup -settimezone "$TIMEZONE" > /dev/null
 
     # Show language menu in the top right corner of the boot screen
     sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
@@ -131,34 +130,6 @@ setup_screen_and_battery() {
 
     print_success "Screen saver, screen capture, energy settings"
 }
-setup_touchbar() {
-    # Use the default collapsed touchbar
-    defaults delete com.apple.touchbar.agent PresentationModeGlobal
-
-    # Use fn button to show function keys
-    defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip functionKeys
-
-    # Configure TouchBar (Mini and Full)
-    defaults write com.apple.controlstrip MiniCustomized -array \
-        "com.apple.system.screencapture" \
-        "com.apple.system.volume" \
-        "com.apple.system.mute" \
-        "com.apple.system.screen-lock"
-
-    defaults write com.apple.controlstrip FullCustomized -array \
-        "com.apple.system.show-desktop" \
-        "com.apple.system.group.brightness" \
-        "com.apple.system.group.keyboard-brightness" \
-        "com.apple.system.group.volume" \
-        "com.apple.system.screencapture" \
-        "com.apple.system.night-shift" \
-        "com.apple.system.do-not-disturb" \
-        "com.apple.system.workflows" \
-        "com.apple.system.screen-lock"
-
-    print_success "MacBook Pro Touchbar"
-
-}
 
 setup_trackpad() {
     # Trackpad: enable tap to click for this user and for the login screen
@@ -182,29 +153,24 @@ setup_trackpad() {
 }
 
 setup_keyboard_and_mouse() {
+    real_user="$(logname)"
+
     # Two button mouse mode
     defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string TwoButton
 
     # Set Mouse speed
-    # @TODO?
+    defaults write -g com.apple.mouse.scaling -float 2
 
     # Disable “natural” (Lion-style) scrolling
-    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+    defaults write -g com.apple.swipescrolldirection -bool false
 
     # Enable full keyboard access for all controls
     # (e.g. enable Tab in modal dialogs)
-    defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
-    # Use scroll gesture with the Ctrl (^) modifier key to zoom
-    defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-    defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-
-    # Follow the keyboard focus while zoomed in
-    defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+    defaults write -g AppleKeyboardUIMode -int 3
 
     # Set a keyboard repeat rate
-    defaults write NSGlobalDomain KeyRepeat -int 1
-    defaults write NSGlobalDomain InitialKeyRepeat -int 30
+    defaults write -g KeyRepeat -int 1
+    defaults write -g InitialKeyRepeat -int 30
 
     # Automatically illuminate built-in MacBook keyboard in low light
     defaults write com.apple.BezelServices kDim -bool true
@@ -416,7 +382,7 @@ setup_menubar() {
 
 setup_external_volumes() {
     # Show the /Volumes folder
-    chflags nohidden /Volumes
+    sudo chflags nohidden /Volumes
 
     # Automatically open a new Finder window when a volume is mounted
     defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
@@ -514,13 +480,6 @@ setup_airdrop() {
     print_success "Airdrop"
 }
 
-setup_error_control() {
-    # Restart automatically if the computer freezes
-    sudo systemsetup -setrestartfreeze on
-
-    print_success "Error control (restart when freeze)"
-}
-
 system_cleanup() {
     # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
     /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
@@ -551,7 +510,6 @@ main() {
     setup_spelling
     setup_screen_and_battery
 
-    setup_touchbar
     setup_trackpad
     setup_keyboard_and_mouse
     setup_ssd
