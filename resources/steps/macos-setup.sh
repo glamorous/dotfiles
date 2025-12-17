@@ -87,15 +87,10 @@ setup_date_and_time() {
     print_success "Date, time, language & regio ($TIMEZONE)"
 }
 setup_screen_and_battery() {
-    IS_MACBOOK=`/usr/sbin/system_profiler SPHardwareDataType | grep "Model Identifier" | grep "Book"`
-    if [[ "$IS_MACBOOK" != "" ]]; then
-        # On charger
-        sudo pmset -c sleep 0 disksleep 15 displaysleep 10 halfdim 1 powernap 1
-        # On battery
-        sudo pmset -b sleep 0 disksleep 10 displaysleep 3 halfdim 1 powernap 0
-    else
-        pmset sleep 0 disksleep 0 displaysleep 30 halfdim 1
-    fi
+    # On charger
+    sudo pmset -c sleep 60 disksleep 15 displaysleep 10 halfdim 1 powernap 1
+    # On battery
+    sudo pmset -b sleep 60 disksleep 10 displaysleep 3 halfdim 1 powernap 0
 
     # Set standby delay to 24 hours (default is 1 hour)
     sudo pmset -a standbydelay 86400
@@ -531,8 +526,6 @@ main() {
 
     setup_save_preferences
     setup_airdrop
-
-    setup_error_control
 
     ask_for_reboot
 }

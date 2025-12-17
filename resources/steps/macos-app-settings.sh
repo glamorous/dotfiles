@@ -271,7 +271,7 @@ setup_appstore() {
 }
 
 restore_mackup_backupfiles() {
-    mackup restore
+    mackup restore -f
 
     print_success "Mackup (restore)"
 }

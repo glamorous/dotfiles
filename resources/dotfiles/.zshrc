@@ -8,21 +8,18 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel9k/powerlevel9k"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Hide username in prompt by giving a default user
 DEFAULT_USER=`whoami`
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git ssh-agent laravel macos aws docker-compose git-trim)
+plugins=(git ssh-agent laravel macos aws docker-compose)
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time history)
-
-# Installed through brew
-source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 
 # Install bash preferences (aliases, ...)
 source ~/.bash_profile

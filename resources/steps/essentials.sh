@@ -35,6 +35,13 @@ brew_install() {
         #  └─ simulate the ENTER keypress
     fi
 
+    # Homebrew paths
+    if [ -f /opt/homebrew/bin/brew ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    elif [ -f /usr/local/bin/brew ]; then
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
+
     print_result $? "Homebrew (install)"
 }
 
@@ -48,18 +55,6 @@ brew_upgrade() {
     execute \
         "brew upgrade" \
         "Homebrew (upgrade)"
-}
-
-brew_permissions() {
-    if [ "$(ls -ld /usr/local/Cellar/ | awk '{print $3}')" != "$(whoami)" ]; then
-        print_warning "Homebrew (folder permissions) - Needs fixing"
-        sudo chown -R $(whoami) /usr/local/Cellar
-        sudo chown -R $(whoami) /usr/local/Homebrew
-        sudo chown -R $(whoami) /usr/local/var/homebrew/locks
-        sudo chown -R $(whoami) /usr/local/etc /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/Frameworks /usr/local/share/locale /usr/local/share/man /usr/local/opt
-    fi;
-
-    print_success "Homebrew (folder permissions)"
 }
 
 brew_doctor() {
@@ -177,13 +172,6 @@ install_oh_my_zsh() {
 
     print_result $? "Oh-My-Zsh"
 }
-install_zsh_theme() {
-    THEME_PATH="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
-    rm -rf $THEME_PATH
-    git clone https://github.com/bhilburn/powerlevel9k.git $THEME_PATH --quiet
-
-    print_success "Zsh-theme"
-}
 install_omz_plugins() {
 		git clone https://github.com/jasonmccreary/git-trim.git $ZSH_CUSTOM/plugins/git-trim
 }
@@ -207,7 +195,6 @@ main() {
     brew_install
     brew_update
     brew_upgrade
-    brew_permissions
     brew_execute_brewfile
     brew_doctor
     install_xcode_tools
@@ -216,7 +203,6 @@ main() {
     ssh_show_public_keys
     git_setup
     install_oh_my_zsh
-    install_zsh_theme
     install_omz_plugins
 }
 
