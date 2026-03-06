@@ -5,21 +5,15 @@ cask_args appdir: "~/Applications"
 #################################
 
 brew "composer"
-brew "dnsmasq", restart_service: true
 brew "gh"
 brew "git"
 brew "git-trim"
 brew "httpie"
-brew "mysql", restart_service: true, link: true
-brew "nginx", restart_service: true
+brew "mysql-client"
 brew "php", link: true
 brew "pkg-config"
-brew "redis", restart_service: true
 brew "wget"
 brew "yarn"
-
-tap "nicoverbruggen/homebrew-cask"
-cask "phpmon"
 
 brew "mailpit"
 
@@ -46,8 +40,10 @@ mas "Pages", id: 409201541
 #################################
 # OSX Applications
 #################################
+cask "affinity"
 cask "calibre"
 cask "charles"
+cask "claude"
 cask "cursor"
 cask "cyberduck"
 cask "dbngin"
@@ -107,7 +103,6 @@ cask "qlmarkdown"
 cask "quicklook-json"
 cask "qlprettypatch"
 cask "quicklook-csv"
-cask "betterzip"
 cask "webpquicklook"
 cask "suspicious-package"
 
