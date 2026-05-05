@@ -41,10 +41,11 @@ mas "Pages", id: 409201541
 # OSX Applications
 #################################
 cask "affinity"
+cask "arduino-ide"
+cask "balenaetcher"
 cask "calibre"
 cask "charles"
 cask "claude"
-cask "cursor"
 cask "cyberduck"
 cask "dbngin"
 cask "dropbox"
@@ -126,3 +127,4 @@ brew "mackup"
 # Tooling
 #################################
 brew "rsync"
+brew "uv"
